@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Menu : MonoBehaviour
 
     private bool eraserActive = false;
     private bool isPaused = false;
+    public Toggle straightLineToggle;
 
     public void Update()
     {
@@ -113,6 +115,20 @@ public class Menu : MonoBehaviour
 
         isPaused = !isPaused;
 
+    }
+
+    public void ToggleStraightLines()
+    {
+        if (straightLineToggle.isOn)
+        {
+            lineCreator.StraightLinesOnly = true;
+        }
+        else
+        {
+            lineCreator.StraightLinesOnly = false;
+
+        }
+        
     }
     
 }

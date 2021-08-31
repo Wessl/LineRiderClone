@@ -11,6 +11,7 @@ public class LineCreator : MonoBehaviour
     public Camera mainCamera;
     
     private bool drawingActive;
+    private bool straightLinesOnly;
     
     void Update()
     {
@@ -23,23 +24,47 @@ public class LineCreator : MonoBehaviour
         {
             return;
         }
+
+        if (straightLinesOnly)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject lineGO = Instantiate(linePrefab);
+                activeLine = lineGO.GetComponent<Line>();
+            }
+    
+            if (Input.GetMouseButtonUp(0))
+            {
+                activeLine = null;
+            }
+    
+            if (activeLine != null)
+            {
+                Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                activeLine.UpdateLine(mousePos, true, true);
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject lineGO = Instantiate(linePrefab);
+                activeLine = lineGO.GetComponent<Line>();
+            }
+    
+            if (Input.GetMouseButtonUp(0))
+            {
+                activeLine = null;
+            }
+    
+            if (activeLine != null)
+            {
+                Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                activeLine.UpdateLine(mousePos, true, false);
+            }
+        }
         
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject lineGO = Instantiate(linePrefab);
-            activeLine = lineGO.GetComponent<Line>();
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            activeLine = null;
-        }
-
-        if (activeLine != null)
-        {
-            Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            activeLine.UpdateLine(mousePos, true);
-        }
+        
         
     }
 
@@ -47,6 +72,7 @@ public class LineCreator : MonoBehaviour
     {
         linePrefab = normalLinePrefab;
         drawingActive = true;
+        straightLinesOnly = false;
     }
 
     public void SetLinePrefab(GameObject linePrefabPicked)
@@ -58,5 +84,11 @@ public class LineCreator : MonoBehaviour
     {
         get => drawingActive;
         set => drawingActive = value;
+    }
+
+    public bool StraightLinesOnly
+    {
+        get => straightLinesOnly;
+        set => straightLinesOnly = value;
     }
 }

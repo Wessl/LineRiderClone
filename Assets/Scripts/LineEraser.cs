@@ -40,7 +40,6 @@ public class LineEraser : MonoBehaviour
             Collider2D[] hits = Physics2D.OverlapCircleAll(worldMousePos, eraseRadius, lineMask);
             foreach (Collider2D hit in hits)
             {
-                Debug.Log("yeah hello?");
                 var pointsOnLine = hit.GetComponent<EdgeCollider2D>().points.ToList();
                 // If there is just one point left on the line, you can safely remove the line's object
                 if (pointsOnLine.Count <= 1)

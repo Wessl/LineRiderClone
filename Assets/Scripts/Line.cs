@@ -11,11 +11,10 @@ public class Line : MonoBehaviour
     public EdgeCollider2D edgeCol;
     public float newPointThreshold;
     public String lineType;
-    private float lineWidth = 1;
 
     private List<Vector2> points;
 
-    public void UpdateLine(Vector2 mousePos, bool shouldAverage)
+    public void UpdateLine(Vector2 mousePos, bool shouldAverage, bool straightLine)
     {
         if (points == null)
         {
@@ -26,7 +25,35 @@ public class Line : MonoBehaviour
 
         if (Vector2.Distance(points.Last(), mousePos) > newPointThreshold)
         {
-            SetPoint(mousePos, shouldAverage);
+            if (straightLine)
+            {
+                SetPointStraightLine(mousePos);
+            }
+            else
+            {
+                SetPoint(mousePos, shouldAverage);
+
+            }
+        }
+    }
+
+    private void SetPointStraightLine(Vector2 point)
+    {
+        if (points.Count >= 2)
+        {
+            // Remove all points between first and last
+            points.RemoveAt(points.Count - 1);
+        }
+
+        points.Add(point);
+        lineRenderer.positionCount = points.Count;
+        lineRenderer.SetPosition(points.Count - 1, point);
+        
+        // Average out the points
+
+        if (points.Count > 1)
+        {
+            edgeCol.points = points.ToArray();
         }
     }
 
@@ -76,7 +103,7 @@ public class Line : MonoBehaviour
     {
         foreach (var point in points)
         {
-            UpdateLine(point, false);
+            UpdateLine(point, false, false);
         }
     }
 
