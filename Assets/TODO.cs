@@ -19,4 +19,8 @@
 // maybe just dont allow cutting through really long lines with eraser?
 //~~ make title scene
 // make more points between points that are too far between each other /(created quickly by mouse)
-// pause button?
+//~~ pause button?
+// ctrl + z to remove last placed line - maybe good idea, but interferes with unity editor for now?
+// rectangle selection tool to move stuff
+//~~ ability to increase or decrease time of movement!!! to stopping completely
+//~~(maybe fixed) loss of precision when saving loaded files....

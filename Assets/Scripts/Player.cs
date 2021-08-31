@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     private Quaternion ogRot;
     private bool hasStarted;
     public TextMeshProUGUI startTextToRemoveOnPlay;
+    private GameObject undoObject;
+    
     private void Update()
     {
         if (Input.GetButtonDown("Play"))

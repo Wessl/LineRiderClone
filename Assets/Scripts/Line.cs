@@ -48,8 +48,6 @@ public class Line : MonoBehaviour
         points.Add(point);
         lineRenderer.positionCount = points.Count;
         lineRenderer.SetPosition(points.Count - 1, point);
-        
-        // Average out the points
 
         if (points.Count > 1)
         {

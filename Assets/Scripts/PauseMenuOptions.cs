@@ -115,11 +115,11 @@ public class PauseMenuOptions : MonoBehaviour
             GameObject newLine = Instantiate(typeToInstantiate, new Vector2(0,0), Quaternion.identity);
             
             // Turn line containing float[] into Vector2[]
-            float[] allPointValues = lines[i];
+            double[] allPointValues = lines[i];
             Vector2[] points = new Vector2[allPointValues.Length / 3];
             for (int y = 0; y < allPointValues.Length; y+=3)
             {
-                points[y/3] = new Vector2(allPointValues[y], allPointValues[y + 1]);
+                points[y/3] = new Vector2((float)allPointValues[y], (float)allPointValues[y + 1]);
             }
             
             newLine.GetComponent<Line>().ConstructLineFromPoints(points);

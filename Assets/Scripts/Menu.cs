@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,6 +21,9 @@ public class Menu : MonoBehaviour
     private bool eraserActive = false;
     private bool isPaused = false;
     public Toggle straightLineToggle;
+
+    public Slider timeScaleSlider;
+    public TextMeshProUGUI timeScaleTMPRO;
 
     public void Update()
     {
@@ -128,7 +132,21 @@ public class Menu : MonoBehaviour
             lineCreator.StraightLinesOnly = false;
 
         }
-        
     }
+
+    public void SetTimeScale()
+    {
+        var val = timeScaleSlider.value;
+        Time.timeScale = val;
+        timeScaleTMPRO.text = "Time scale: " + val + "x";
+    }
+
+    public void ResetTimeScale()
+    {
+        // Put timescale back to 1.0 by manually moving slider
+        timeScaleSlider.value = 1.0f;
+        //SetTimeScale(); not needed
+    }
+    
     
 }

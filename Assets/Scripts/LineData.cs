@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class LineData
 {
     // index of line, each line maps index of point to world space position
-    private Dictionary<int, float[]> lineRenderers = new Dictionary<int, float[]>();
+    private Dictionary<int, double[]> lineRenderers = new Dictionary<int, double[]>();
     private string[] lineTypes;
 
     public LineData(Line[] lines)
@@ -17,21 +18,21 @@ public class LineData
         {
             // Convert points of type Vector2 from line class into float arrays
             Vector3[] points = line.PointsAsVec3Arr;
-            float[] pointsAsFloats = new float[points.Length * 3];
+            double[] pointsAsDoubles = new Double[points.Length * 3];
             int y = 0;
             foreach (var point in points)
             {
-                pointsAsFloats[y++] = point.x;
-                pointsAsFloats[y++] = point.y;
-                pointsAsFloats[y++] = point.z;
+                pointsAsDoubles[y++] = point.x;
+                pointsAsDoubles[y++] = point.y;
+                pointsAsDoubles[y++] = point.z;
             }
-            lineRenderers.Add(i, pointsAsFloats);
+            lineRenderers.Add(i, pointsAsDoubles);
             lineTypes[i] = line.lineType;
             i++;
         }
     }
 
-    public Dictionary<int, float[]> LineRenderers => lineRenderers;
+    public Dictionary<int, double[]> LineRenderers => lineRenderers;
 
     public string[] LineTypes => lineTypes;
 }

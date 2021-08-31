@@ -12,6 +12,7 @@ public class LineCreator : MonoBehaviour
     
     private bool drawingActive;
     private bool straightLinesOnly;
+    private Player playerRef;
     
     void Update()
     {
@@ -25,44 +26,24 @@ public class LineCreator : MonoBehaviour
             return;
         }
 
-        if (straightLinesOnly)
+       
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                GameObject lineGO = Instantiate(linePrefab);
-                activeLine = lineGO.GetComponent<Line>();
-            }
-    
-            if (Input.GetMouseButtonUp(0))
-            {
-                activeLine = null;
-            }
-    
-            if (activeLine != null)
-            {
-                Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                activeLine.UpdateLine(mousePos, true, true);
-            }
+            GameObject lineGO = Instantiate(linePrefab);
+            activeLine = lineGO.GetComponent<Line>();
         }
-        else
+
+        if (Input.GetMouseButtonUp(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                GameObject lineGO = Instantiate(linePrefab);
-                activeLine = lineGO.GetComponent<Line>();
-            }
-    
-            if (Input.GetMouseButtonUp(0))
-            {
-                activeLine = null;
-            }
-    
-            if (activeLine != null)
-            {
-                Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                activeLine.UpdateLine(mousePos, true, false);
-            }
+            activeLine = null;
         }
+
+        if (activeLine != null)
+        {
+            Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            activeLine.UpdateLine(mousePos, true, straightLinesOnly);
+        }
+        
         
         
         
@@ -73,6 +54,7 @@ public class LineCreator : MonoBehaviour
         linePrefab = normalLinePrefab;
         drawingActive = true;
         straightLinesOnly = false;
+        playerRef = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
     public void SetLinePrefab(GameObject linePrefabPicked)

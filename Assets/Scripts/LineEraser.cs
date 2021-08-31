@@ -21,6 +21,8 @@ public class LineEraser : MonoBehaviour
 
     private bool erasingActive;
 
+    private Player playerRef;
+
     private void Update()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -145,6 +147,7 @@ public class LineEraser : MonoBehaviour
 
     private void Start()
     {
+        playerRef = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
 
