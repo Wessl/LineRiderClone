@@ -94,6 +94,9 @@ public class PauseMenuOptions : MonoBehaviour
 
     public void LoadLines(string fileNameInput)
     {
+        // Before loading in new lines, remove the old ones!
+        RemoveOldLines();
+        
         LineData lineData = SaveSystem.LoadLines(fileNameInput);
         var lines = lineData.LineRenderers;
         var lineTypes = lineData.LineTypes;
@@ -126,6 +129,15 @@ public class PauseMenuOptions : MonoBehaviour
             }
             
             newLine.GetComponent<Line>().ConstructLineFromPoints(points);
+        }
+    }
+
+    private void RemoveOldLines()
+    {
+        var allLines = GameObject.FindGameObjectsWithTag("Line");
+        foreach (var line in allLines)
+        {
+            Destroy(line);
         }
     }
 

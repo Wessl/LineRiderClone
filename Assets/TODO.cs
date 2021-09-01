@@ -26,4 +26,4 @@
 //~~(maybe fixed) loss of precision when saving loaded files....
 // confirmation of deletion of levels (are you sure?)
 // delete everything when you load in something new?
-// tooltips on hovering over buttons and shit
+//~~ tooltips on hovering over buttons and shit
