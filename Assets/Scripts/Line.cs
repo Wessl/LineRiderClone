@@ -85,11 +85,11 @@ public class Line : MonoBehaviour
         lineRenderer.SetPositions(points.ToArray().toVector3());
         lineRenderer.positionCount = points.Count;
 
-        if (points.Count == 1)
+        if (points.Count <= 1)
         {
             Destroy(gameObject);
         }
-        if (points.Count > 1)
+        else if (points.Count > 1)
         {
             edgeCol.points = points.ToArray();
         }
@@ -99,6 +99,10 @@ public class Line : MonoBehaviour
 
     public void ConstructLineFromPoints(Vector2[] points)
     {
+        if (points.Length <= 1)
+        {
+            return;
+        }
         foreach (var point in points)
         {
             UpdateLine(point, false, false);

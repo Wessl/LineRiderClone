@@ -106,7 +106,7 @@ public class Menu : MonoBehaviour
         if (isPaused)
         {
             // Unpause
-            Time.timeScale = 1;
+            Time.timeScale = timeScaleSlider.value;
             pauseMenu.SetActive(false);
         }
         else

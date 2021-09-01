@@ -117,10 +117,18 @@ public class LineEraser : MonoBehaviour
         pointsOnLine.Reverse();
         Vector2[] pointArr2 = pointsOnLine.Take(pointsOnLine.Count - (pointIndex - 1)).ToArray();
         GameObject typeToInstantiate = GetLineType(hit);
-        GameObject newLine1 = Instantiate(typeToInstantiate, new Vector2(0,0), Quaternion.identity);
-        GameObject newLine2 = Instantiate(typeToInstantiate, new Vector2(0,0), Quaternion.identity);
-        newLine1.GetComponent<Line>().ConstructLineFromPoints(pointArr1);
-        newLine2.GetComponent<Line>().ConstructLineFromPoints(pointArr2);
+        if (pointArr1.Length > 1)
+        {
+            GameObject newLine1 = Instantiate(typeToInstantiate, new Vector2(0,0), Quaternion.identity);
+            newLine1.GetComponent<Line>().ConstructLineFromPoints(pointArr1);
+        }
+
+        if (pointArr2.Length > 1)
+        {
+            GameObject newLine2 = Instantiate(typeToInstantiate, new Vector2(0,0), Quaternion.identity);
+            newLine2.GetComponent<Line>().ConstructLineFromPoints(pointArr2);
+        }
+        
         Destroy(hit.gameObject);
     }
 
