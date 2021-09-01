@@ -28,6 +28,9 @@ public class PauseMenuOptions : MonoBehaviour
     public GameObject closeLoadFilesPanelButton;
     private List<String> filesNames;
     private List<GameObject> cells;
+    public GameObject deletionConfirmWindow;
+
+    private int deletionIndex;
 
     private void Start()
     {
@@ -174,9 +177,19 @@ public class PauseMenuOptions : MonoBehaviour
         LoadLines(filesNames[index]);
     }
 
-    public void DeleteFile(int index)
+    public void BringUpDeletionWindow()
     {
-        string path = SaveSystem.MakeLineRiderSaveFileName(filesNames[index]);
+        deletionConfirmWindow.SetActive(true);
+    }
+
+    public void CancelDeletion()
+    {
+        deletionConfirmWindow.SetActive(false);
+    }
+
+    public void ConfirmDeletion()
+    {
+        string path = SaveSystem.MakeLineRiderSaveFileName(filesNames[deletionIndex]);
         try
         {
             System.IO.File.Delete(path);
@@ -187,7 +200,13 @@ public class PauseMenuOptions : MonoBehaviour
         {
             Debug.LogError("Tried deleting file and failed. " + e);
         }
-        
+        deletionConfirmWindow.SetActive(false);
+    }
+
+    public void DeleteFile(int index)
+    {
+        deletionIndex = index;
+        BringUpDeletionWindow();
     }
 
     public void CloseLoadPanel()

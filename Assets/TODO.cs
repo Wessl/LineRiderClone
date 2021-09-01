@@ -6,16 +6,16 @@
 //~~ automatic camera movement when playing
 // story mode where you have to dodge obstacles and shit to get to the end
 //~~ erase with right mouse button?
-//~? improve the eraser tool
+//~~ improve the eraser tool
 // enable erasing while player is touching line trying to be erased
 //~~ camera zoom with scroll wheel
 //~~ eraser is sometimes unresponsive/slow to erase
 //~~ make eraser cursor size scale with size of erasing going on (try zooming)
-// main menu
+//~~ main menu
 //~~ allow to change eraser radius
 //~~ anD LINE RADIUS???? - actually no fuck that
 // eraser algorithm is extremely inefficient get fucked
-// weird bug: ghost lines???
+//~~ weird bug: ghost lines???
 // maybe just dont allow cutting through really long lines with eraser?
 //~~ make title scene
 // make more points between points that are too far between each other /(created quickly by mouse)
@@ -24,3 +24,5 @@
 // rectangle selection tool to move stuff
 //~~ ability to increase or decrease time of movement!!! to stopping completely
 //~~(maybe fixed) loss of precision when saving loaded files....
+// confirmation of deletion of levels (are you sure?)
+//~~ delete everything when you load in something new?
