@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 // Apply this to any button that needs mouse over tooltip behavior
 public class ButtonTooltipHelper : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private string tooltipText;
+    [TextArea] [SerializeField] private string tooltipText;
     public void OnPointerEnter(PointerEventData eventData)
     {
         Tooltip.Showtooltip_Static(tooltipText);

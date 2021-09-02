@@ -121,17 +121,14 @@ public class Menu : MonoBehaviour
 
     }
 
-    public void ToggleStraightLines()
+    private void TurnOnStraightLines()
     {
-        if (straightLineToggle.isOn)
-        {
-            lineCreator.StraightLinesOnly = true;
-        }
-        else
-        {
-            lineCreator.StraightLinesOnly = false;
+        lineCreator.StraightLinesOnly = true;
+    }
 
-        }
+    private void TurnOffStraightLines()
+    {
+        lineCreator.StraightLinesOnly = false;
     }
 
     public void SetTimeScale()
@@ -146,6 +143,18 @@ public class Menu : MonoBehaviour
         // Put timescale back to 1.0 by manually moving slider
         timeScaleSlider.value = 1.0f;
         //SetTimeScale(); not needed
+    }
+
+    public void ClickPencil()
+    {
+        TurnOffEraser();
+        TurnOffStraightLines();
+    }
+
+    public void ClickStraightLines()
+    {
+        TurnOnStraightLines();
+        TurnOffEraser();
     }
     
     

@@ -37,19 +37,21 @@ public class LineCreator : MonoBehaviour
         {
             Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             activeLine.UpdateLine(mousePos, true, straightLinesOnly);
+            
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (activeLine.Points.Count <= 1)
+                {
+                    Destroy(activeLine.gameObject);
+                }
+                else
+                {
+                    activeLine = null;
+                }
+            }
         }
         
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (activeLine.Points.Count <= 1)
-            {
-                Destroy(activeLine.gameObject);
-            }
-            else
-            {
-                activeLine = null;
-            }
-        }
+        
     }
 
     void Start()

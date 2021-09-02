@@ -27,3 +27,12 @@
 // confirmation of deletion of levels (are you sure?)
 // delete everything when you load in something new?
 //~~ tooltips on hovering over buttons and shit
+
+// for the following. just look at official line rider game..........
+
+// smoother camera zooming
+// better UI / UX
+// better erasing
+// smoother drawing from the get go
+// ragdoll physics character
+// better riding line experience (why is mine so jumpy)
