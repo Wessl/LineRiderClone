@@ -7,12 +7,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public CapsuleCollider2D capsuleCollider;
     private Vector3 ogPos;
     private Quaternion ogRot;
     private bool hasStarted;
     public TextMeshProUGUI startTextToRemoveOnPlay;
     private GameObject undoObject;
-    
+
     private void Update()
     {
         if (Input.GetButtonDown("Play"))
@@ -29,6 +30,10 @@ public class Player : MonoBehaviour
         ogPos = gameObject.transform.position;
         ogRot = gameObject.transform.rotation;
         hasStarted = false;
+        
+        rb.useAutoMass = true;
+        rb.angularDrag = 0;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
     public void ResetPosition()
