@@ -135,9 +135,10 @@ public class Menu : MonoBehaviour
     public void SetTimeScale()
     {
         var val = timeScaleSlider.value;
-        Time.timeScale = val;
         // Set the time scale text, with 2 precision digits
         timeScaleTMPRO.text = "Time scale: " + val.ToString("F", CultureInfo.InvariantCulture) + "x";
+        if (isPaused) return;
+        Time.timeScale = val;
     }
 
     public void ResetTimeScale()
@@ -157,6 +158,19 @@ public class Menu : MonoBehaviour
     {
         TurnOnStraightLines();
         TurnOffEraser();
+    }
+
+    public void PlayButton()
+    {
+        isPaused = false;
+        player.StartPlaying();
+        Time.timeScale = timeScaleSlider.value;
+    }
+
+    public void PauseButton()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
     }
     
     

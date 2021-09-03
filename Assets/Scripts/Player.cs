@@ -13,16 +13,23 @@ public class Player : MonoBehaviour
     private bool hasStarted;
     public TextMeshProUGUI startTextToRemoveOnPlay;
     private GameObject undoObject;
+    public Menu menu;
 
     private void Update()
     {
         if (Input.GetButtonDown("Play"))
         {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            // Reset camera in case it has been moved
-            GameObject.FindObjectOfType<CameraControlOverride>().CameraReset();
-            //startTextToRemoveOnPlay.gameObject.SetActive(false);
+            StartPlaying();
+            menu.PlayButton();
         }
+    }
+
+    public void StartPlaying()
+    {
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        // Reset camera in case it has been moved
+        GameObject.FindObjectOfType<CameraControlOverride>().CameraReset();
+        //startTextToRemoveOnPlay.gameObject.SetActive(false);
     }
 
     private void Start()

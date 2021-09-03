@@ -64,10 +64,10 @@ public class Line : MonoBehaviour
         // Average out the points
         if (points.Count > 2 && shouldAverage)
         {
-            for (int i = 1; i < points.Count - 1; i++)
+            for (int i = Points.Count - 2; i > (points.Count - 1) - 15 && i > 1; i--)
             {
-                var newPos = (lineRenderer.GetPosition(i - 1) + lineRenderer.GetPosition(i) +
-                              lineRenderer.GetPosition(i + 1)) / 3;
+                var newPos = (lineRenderer.GetPosition(i + 1) + lineRenderer.GetPosition( i ) +
+                              lineRenderer.GetPosition(i - 1)) / 3;
                 lineRenderer.SetPosition(i, newPos);
                 points[i] = newPos;
             }
