@@ -27,7 +27,7 @@ public class Tutorial : MonoBehaviour
         iterator = 0;
         if (PlayerPrefs.HasKey("TutorialDone"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -49,7 +49,8 @@ public class Tutorial : MonoBehaviour
         gameObject.SetActive(true);
         tooltipTMP.SetText(tooltipString);
         tooltipTMP.ForceMeshUpdate();
-        gameObject.transform.position = positionsOfText[iterator];
+        Vector3 pos = positionsOfText[iterator];
+        gameObject.transform.position = new Vector3(pos.x /(1920f / Screen.width), pos.y / ( 1280f /Screen.height), 0);
         float textPadding = 4f;
         Vector2 backgroundSize = tooltipTMP.GetRenderedValues();
         Vector2 paddingSize = new Vector2(8, 8);

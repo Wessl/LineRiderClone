@@ -2283,11 +2283,11 @@ MonoBehaviour:
     value, you can make precise adjustments to the track.  '
   - That's it! Now go draw some lines. Press the Spacebar to start playing.
   positionsOfText:
-  - {x: 882.38, y: 700.49, z: 0}
-  - {x: 279.6, y: 302.28, z: 0}
-  - {x: 993.4, y: 126.2, z: 0}
-  - {x: 1665.1, y: 822.91, z: 0}
-  - {x: 910, y: 700, z: 0}
+  - {x: 882.38, y: 803.33, z: 0}
+  - {x: 279.6, y: 349.8, z: 0}
+  - {x: 993.4, y: 226.1, z: 0}
+  - {x: 1665.1, y: 950.4, z: 0}
+  - {x: 910, y: 803.3, z: 0}
 --- !u!222 &629943804
 CanvasRenderer:
   m_ObjectHideFlags: 0
