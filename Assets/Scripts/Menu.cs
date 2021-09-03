@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -135,7 +136,8 @@ public class Menu : MonoBehaviour
     {
         var val = timeScaleSlider.value;
         Time.timeScale = val;
-        timeScaleTMPRO.text = "Time scale: " + val + "x";
+        // Set the time scale text, with 2 precision digits
+        timeScaleTMPRO.text = "Time scale: " + val.ToString("F", CultureInfo.InvariantCulture) + "x";
     }
 
     public void ResetTimeScale()

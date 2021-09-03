@@ -24,19 +24,19 @@
 // rectangle selection tool to move stuff
 //~~ ability to increase or decrease time of movement!!! to stopping completely
 //~~(maybe fixed) loss of precision when saving loaded files....
-// confirmation of deletion of levels (are you sure?)
-// delete everything when you load in something new?
+//~~ confirmation of deletion of levels (are you sure?)
+//~~ delete everything when you load in something new?
 //~~ tooltips on hovering over buttons and shit
-// more decimals
+//~~ less decimals
 // gör så att speed boost och gravitation funkar'
-// ändra storlek på alla när man hoverar?
+// ändra storlek på alla när man hoverar? (what the fuck?)
 // mitten musknapp drar i webbläsaren också?
-// saving funkar inte i reload i webgl
+//~~ saving funkar inte i reload i webgl
 // små bumps ger stor skillnad i hög hastighet
 // mer hastighet av röd ?
 //~~ better tutorial system - maybe have arrows in the beginning that point to each thing and explains what it does
 // buttons to click for play and pause instead/also?
-// intro tutorial does not scale with screen size... -take screen size dimension divided by position in that dimension
+//~~ intro tutorial does not scale with screen size... -take screen size dimension divided by position in that dimension
 
 // for the following. just look at official line rider game..........
 
