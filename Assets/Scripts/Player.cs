@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Dynamic;
             // Reset camera in case it has been moved
             GameObject.FindObjectOfType<CameraControlOverride>().CameraReset();
-            startTextToRemoveOnPlay.gameObject.SetActive(false);
+            //startTextToRemoveOnPlay.gameObject.SetActive(false);
         }
     }
 
