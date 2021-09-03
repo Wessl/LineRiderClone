@@ -34,8 +34,9 @@
 // saving funkar inte i reload i webgl
 // små bumps ger stor skillnad i hög hastighet
 // mer hastighet av röd ?
-// better tutorial system - maybe have arrows in the beginning that point to each thing and explains what it does
+//~~ better tutorial system - maybe have arrows in the beginning that point to each thing and explains what it does
 // buttons to click for play and pause instead/also?
+// intro tutorial does not scale with screen size... -take screen size dimension divided by position in that dimension
 
 // for the following. just look at official line rider game..........
 
