@@ -78,5 +78,9 @@ public class CameraControlOverride : MonoBehaviour
     public void CameraReset()
     {
         cmv_Camera.Follow = player.GetComponent<Transform>();
+        // Ugly hack to get size to reset
+        orthogCameraSize = 5;
+        t += Time.deltaTime;
+
     }
 }

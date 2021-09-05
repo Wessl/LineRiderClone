@@ -35,8 +35,11 @@
 // små bumps ger stor skillnad i hög hastighet
 // mer hastighet av röd ?
 //~~ better tutorial system - maybe have arrows in the beginning that point to each thing and explains what it does
-// buttons to click for play and pause instead/also?
+//~~ buttons to click for play and pause instead/also?
 //~~ intro tutorial does not scale with screen size... -take screen size dimension divided by position in that dimension
+// ability to download saved levels from webgl so you can send it to someone?
+//~~ tyhere is playerprefs level????? in webgl??
+//~~ reset camera witrh reset position
 
 // for the following. just look at official line rider game..........
 
@@ -44,5 +47,5 @@
 //~ better UI / UX
 // better erasing
 // smoother drawing from the get go
-// ragdoll physics character
+//~? ragdoll physics character ( i bloody tried and it didnt work out so good)
 // better riding line experience (why is mine so jumpy)

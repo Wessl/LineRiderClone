@@ -5473,6 +5473,7 @@ MonoBehaviour:
   loadFilesPanel: {fileID: 940417688}
   closeLoadFilesPanelButton: {fileID: 1630831277}
   deletionConfirmWindow: {fileID: 1247385870}
+  exitButton: {fileID: 478179928}
 --- !u!1 &1360710716
 GameObject:
   m_ObjectHideFlags: 0
@@ -6546,6 +6547,9 @@ MonoBehaviour:
   straightLineToggle: {fileID: 1497087633}
   timeScaleSlider: {fileID: 1079934036}
   timeScaleTMPRO: {fileID: 459526856}
+  pauseMenuPanelSave: {fileID: 1472071688}
+  pauseMenuPanelLoad: {fileID: 940417688}
+  pauseMenuPanelLoadPanelCloseButton: {fileID: 1630831277}
 --- !u!114 &1594065310
 MonoBehaviour:
   m_ObjectHideFlags: 0

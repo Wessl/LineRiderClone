@@ -31,10 +31,17 @@ public class PauseMenuOptions : MonoBehaviour
     public GameObject deletionConfirmWindow;
 
     private int deletionIndex;
+    
+    public GameObject exitButton;
 
     private void Start()
     {
         cells = new List<GameObject>();
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            // Remove the exit game button entirely, since using it makes no sense in a webGL build and destroys the session
+            Destroy(exitButton);
+        }
     }
 
     public void SetEraserWidth()
@@ -64,14 +71,13 @@ public class PauseMenuOptions : MonoBehaviour
             ActivateConfirmLevelErrorText("There is nothing to save!");
         }
         // Validate file name
-        else if (inputAttempt.IndexOfAny(System.IO.Path.GetInvalidFileNameChars()) != -1)
+        else if (inputAttempt.IndexOfAny(System.IO.Path.GetInvalidFileNameChars()) != -1 || inputAttempt.Equals("PlayerPrefs"))
         {
             ActivateConfirmLevelErrorText("Invalid name!");
         } 
         else if (inputAttempt.Length == 0)
         {
             ActivateConfirmLevelErrorText("Must have a name!");
-
         }
         else if (System.IO.File.Exists(SaveSystem.MakeLineRiderSaveFileName(inputAttempt)))
         {
@@ -168,7 +174,12 @@ public class PauseMenuOptions : MonoBehaviour
         int i = 0;
         foreach (var fileName in filesNamesTemp)
         {
-            // Debug.Log("this filename was found: " + fileName);
+            // For some reason PlayerPrefs are stored here too - don't display that
+            if (fileName.Trim().Equals("PlayerPrefs"))
+            {
+                continue;
+            }
+            // Set up the cell containing name of level
             var cell = Instantiate(loadFileCell, Vector3.zero, Quaternion.identity, cellParent.transform);
             string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
             cell.GetComponentInChildren<TextMeshProUGUI>().text = fileNameWithoutExtension;

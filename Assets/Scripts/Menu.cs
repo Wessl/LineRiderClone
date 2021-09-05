@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using Cinemachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,11 @@ public class Menu : MonoBehaviour
 
     public Slider timeScaleSlider;
     public TextMeshProUGUI timeScaleTMPRO;
+
+    public GameObject pauseMenuPanelSave;
+    public GameObject pauseMenuPanelLoad;
+    public GameObject pauseMenuPanelLoadPanelCloseButton;
+
 
     public void Update()
     {
@@ -108,7 +114,12 @@ public class Menu : MonoBehaviour
         {
             // Unpause
             Time.timeScale = timeScaleSlider.value;
+            // Turn off all panels
+            pauseMenuPanelSave.SetActive(false);
+            pauseMenuPanelLoad.SetActive(false);
+            pauseMenuPanelLoadPanelCloseButton.SetActive(false);
             pauseMenu.SetActive(false);
+            
         }
         else
         {
@@ -172,6 +183,4 @@ public class Menu : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
     }
-    
-    
 }
